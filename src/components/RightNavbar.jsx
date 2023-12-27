@@ -21,14 +21,14 @@ const RightNavbar = () => {
 
   return (
     <div className=" w-[350px] ">
-      <div className="  rounded-md border-2 border-gray-100 px-2 ">
+      <div className="  rounded-md border-2 border-gray-100 px-4 py-2 ">
         {lists.map((list, index) => (
           <Link
             to={list.link}
             key={index}
             className={`${
-              location.pathname === list.link ? "  bg-blue-800  text-white" : ""
-            } flex items-center gap-2  cursor-pointer`}
+              location.pathname === list.link ? " px-2 bg-blue-800  text-white" : " "
+            } flex items-center gap-2 px-2  cursor-pointer rounded-sm`}
           >
             <h1 className=" py-3 text-2xl flex items-center">{list.icon}</h1>
             <h1

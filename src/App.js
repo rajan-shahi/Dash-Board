@@ -13,9 +13,9 @@ function App() {
     <div className=" overflow-x-hidden">
       <BrowserRouter>
         <Navbar />
-        <div className=" flex gap-4 py-5 px-5">
+        <div className=" flex gap-4 py-5">
           <RightNavbar />
-          <div className=" border w-full rounded-md">
+          <div className=" border w-full rounded-md px-5 py-2">
             <Routes>
               <Route path="/doctors" element={<Doctors />} />
               <Route path="/testimonial" element={<Testmoniral />} />
