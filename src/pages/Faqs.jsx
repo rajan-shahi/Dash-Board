@@ -1,7 +1,24 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Faqs = () => {
+  const [faqs, setFaqs] = useState([]);
+
+  useEffect(() => {
+    const fetchFaqsAllItems = async () => {
+      const respones = await axios.get("http://localhost:4000/api/faqs");
+      setFaqs(respones.data.data);
+    };
+    fetchFaqsAllItems();
+  }, []);
+
+  const deleteFaqs = async (_id) => {
+    const response = await axios.delete(
+      `http://localhost:4000/api/faqs/${_id}`
+    );
+    console.log(response);
+  };
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
       <div className="items-start justify-between md:flex">
@@ -33,10 +50,10 @@ const Faqs = () => {
             </tr>
           </thead>
           <tbody className="text-gray-600 divide-y">
-            {tableItems.map((item, idx) => (
+            {faqs.map((faq, idx) => (
               <tr key={idx}>
-                <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{faq.question}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{faq.answer}</td>
                 <td className="text-right px-6 whitespace-nowrap">
                   <a
                     href="/"
@@ -44,7 +61,10 @@ const Faqs = () => {
                   >
                     Edit
                   </a>
-                  <button className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
+                  <button
+                    onClick={() => deleteFaqs(faq._id)}
+                    className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
+                  >
                     Delete
                   </button>
                 </td>
@@ -58,36 +78,3 @@ const Faqs = () => {
 };
 
 export default Faqs;
-
-const tableItems = [
-  {
-    name: "Liam James",
-    email: "liamjames@example.com",
-    position: "Software engineer",
-    salary: "$100K",
-  },
-  {
-    name: "Olivia Emma",
-    email: "oliviaemma@example.com",
-    position: "Product designer",
-    salary: "$90K",
-  },
-  {
-    name: "William Benjamin",
-    email: "william.benjamin@example.com",
-    position: "Front-end developer",
-    salary: "$80K",
-  },
-  {
-    name: "Henry Theodore",
-    email: "henrytheodore@example.com",
-    position: "Laravel engineer",
-    salary: "$120K",
-  },
-  {
-    name: "Amelia Elijah",
-    email: "amelia.elijah@example.com",
-    position: "Open source manager",
-    salary: "$75K",
-  },
-];

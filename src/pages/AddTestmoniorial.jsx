@@ -18,7 +18,7 @@ const AddTestmoniorial = () => {
   return (
     <div className=" flex flex-col gap-4 py-10 px-10">
       <input
-        className=" border  border-blue-400 py-3 placeholder:px-4"
+        className="  px-2 border  border-blue-400 py-3 "
         type="text"
         value={name}
         onChange={(e) => setname(e.target.value)}
@@ -27,7 +27,7 @@ const AddTestmoniorial = () => {
       <input
         value={description}
         onChange={(e) => setdescription(e.target.value)}
-        className=" border  border-blue-400 py-3 placeholder:px-4"
+        className=" px-2 border  border-blue-400 py-3 "
         type="text"
         placeholder="Enter Description"
       />
