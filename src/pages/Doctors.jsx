@@ -33,10 +33,17 @@ const Doctors = () => {
               <th className="py-3 px-6"></th>
             </tr>
           </thead>
-          <tbody className="text-gray-600 divide-y">
+          <tbody className="text-gray-600 divide-y ">
             {tableItems.map((item, idx) => (
-              <tr key={idx}>
-                <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
+              <tr key={idx} className="">
+                <div className=" flex  px-2 gap-2 items-center">
+                  <img
+                    alt=""
+                    src={item.avatar}
+                    className="w-10 h-10 rounded-full"
+                  />
+                  <td className="py-4 whitespace-nowrap">{item.name}</td>
+                </div>
                 <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.position}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.phone}</td>
@@ -64,30 +71,37 @@ export default Doctors;
 
 const tableItems = [
   {
+    avatar:
+      "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
     name: "Liam James",
     email: "liamjames@example.com",
     position: "Doctor",
     phone: "+9779866554102",
   },
   {
+    avatar: "https://randomuser.me/api/portraits/men/86.jpg",
     name: "Olivia Emma",
     email: "oliviaemma@example.com",
     position: "Doctor",
     phone: "+9779866554102",
   },
   {
+    avatar: "https://randomuser.me/api/portraits/women/79.jpg",
     name: "William Benjamin",
     email: "william.benjamin@example.com",
     position: "Doctor",
     phone: "+9779866554102",
   },
   {
+    avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
     name: "Henry Theodore",
     email: "henrytheodore@example.com",
     position: "Doctor",
     phone: "+9779866554102",
   },
   {
+    avatar:
+      "https://images.unsplash.com/photo-1439911767590-c724b615299d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
     name: "Amelia Elijah",
     email: "amelia.elijah@example.com",
     position: "Doctor",
