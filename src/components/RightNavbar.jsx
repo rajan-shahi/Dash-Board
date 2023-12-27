@@ -27,11 +27,15 @@ const RightNavbar = () => {
             to={list.link}
             key={index}
             className={`${
-              location.pathname === list.link ? "  bg-blue-800" : ""
+              location.pathname === list.link ? "  bg-blue-800  text-white" : ""
             } flex items-center gap-2  cursor-pointer`}
           >
             <h1 className=" py-3 text-2xl flex items-center">{list.icon}</h1>
-            <h1 className=" text-sm text-gray-600">{list.name}</h1>
+            <h1
+              className={`${list.name === "name" ? " text-white" : ""}text-md`}
+            >
+              {list.name}
+            </h1>
           </Link>
         ))}
       </div>
@@ -50,66 +54,66 @@ const lists = [
   {
     icon: <FaRegCalendarAlt />,
     name: "Events",
-    link: "events",
+    link: "/events",
   },
   {
     icon: <MdOutlineEventNote />,
     name: "Notices",
-    link: "notices",
+    link: "/notices",
   },
   {
     icon: <SiBookstack />,
     name: "Accrediatipons",
-    link: "accrediations",
+    link: "/accrediations",
   },
   {
     icon: <FaBalanceScaleRight />,
     name: "Departments",
-    link: "departments",
+    link: "/departments",
   },
   {
     icon: <FiAward />,
     name: "Awards",
-    link: "awards",
+    link: "/awards",
   },
   {
     icon: <BsQuestionCircle />,
     name: "Faqs",
-    link: "faqus",
+    link: "/faqs",
   },
   {
     icon: <IoCallOutline />,
     name: "Contacts",
-    link: "contacts",
+    link: "/contacts",
   },
   {
     icon: <GrGallery />,
     name: "Galleries",
-    link: "galleries",
+    link: "/galleries",
   },
   {
     icon: <MdOutlinePeopleAlt />,
     name: "Comitteess",
-    link: "committees",
+    link: "/committees",
   },
   {
     icon: <FaGgCircle />,
     name: "Features",
-    link: "features",
+    link: "/features",
   },
   {
     icon: <LiaBookmark />,
     name: "Abouts",
-    link: "abouts",
+    link: "/abouts",
   },
   {
     icon: <LuHeartOff />,
     name: "Values",
-    link: "values",
+    link: "/values",
   },
   {
     icon: <IoIosHeartEmpty />,
-    name: "Testmonirols",
-    link: "testmonirols",
+    name: "Testimonial",
+    link: "/testimonial",
   },
 ];

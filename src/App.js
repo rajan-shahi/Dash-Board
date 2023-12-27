@@ -3,10 +3,14 @@ import "./App.css";
 import Doctors from "./pages/Doctors";
 import RightNavbar from "./components/RightNavbar";
 import Navbar from "./components/Navbar";
+import Testmoniral from "./pages/Testmoniral";
+import AddTestmoniorial from "./pages/AddTestmoniorial";
+import Faqs from "./pages/Faqs";
+import AddFaqs from "./pages/AddFaqs";
 
 function App() {
   return (
-    <div>
+    <div className=" overflow-x-hidden">
       <BrowserRouter>
         <Navbar />
         <div className=" flex gap-4 py-5 px-5">
@@ -14,6 +18,10 @@ function App() {
           <div className=" border w-full rounded-md">
             <Routes>
               <Route path="/doctors" element={<Doctors />} />
+              <Route path="/testimonial" element={<Testmoniral />} />
+              <Route path="/addtestimonial" element={<AddTestmoniorial />} />
+              <Route path="/faqs" element={<Faqs/>} />
+              <Route path="/addfaqs" element={<AddFaqs/>} />
             </Routes>
           </div>
         </div>
