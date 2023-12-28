@@ -1,16 +1,24 @@
 import axios from "axios";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const AddFaqs = () => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+  const [deleting, setdeleting] = useState();
 
   const createFaqs = async () => {
+    setdeleting(true)
     const response = await axios.post("http://localhost:4000/api/faqs", {
       question: question,
       answer: answer,
     });
+  {  
+    response.status === 201 && toast.success(response.data.msg);}
     console.log(response);
+    setdeleting(false)
+    setQuestion("")
+    setAnswer("")
   };
 
   return (
@@ -30,7 +38,7 @@ const AddFaqs = () => {
         placeholder="Enter Your Answer"
       />
       <button onClick={createFaqs} className=" bg-blue-500 text-white py-2">
-        Creater
+       {deleting ? "Creating" :"create"}
       </button>
     </div>
   );

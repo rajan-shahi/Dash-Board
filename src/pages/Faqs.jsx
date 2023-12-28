@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Faqs = () => {
+  const [deleting, setdeleting] = useState(false);
   const [faqs, setFaqs] = useState([]);
 
   useEffect(() => {
@@ -14,11 +16,13 @@ const Faqs = () => {
   }, []);
 
   const deleteFaqs = async (_id) => {
+    setdeleting(true);
     const response = await axios.delete(
       `http://localhost:4000/api/faqs/${_id}`
     );
-    // response.data.status === 200 && toHaveStyle.success(response.data.msg);
+    response.data === 201 && toast.success(response.data.msg);
     console.log(response);
+    setdeleting(false);
   };
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
