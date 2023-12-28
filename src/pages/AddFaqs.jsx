@@ -29,7 +29,9 @@ const AddFaqs = () => {
         type="text"
         placeholder="Enter Your Answer"
       />
-      <button onClick={createFaqs} className=" bg-blue-500 text-white py-2">Creater</button>
+      <button onClick={createFaqs} className=" bg-blue-500 text-white py-2">
+        Creater
+      </button>
     </div>
   );
 };

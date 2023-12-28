@@ -7,10 +7,12 @@ import Testmoniral from "./pages/Testmoniral";
 import AddTestmoniorial from "./pages/AddTestmoniorial";
 import Faqs from "./pages/Faqs";
 import AddFaqs from "./pages/AddFaqs";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className=" overflow-x-hidden">
+         <Toaster />
       <BrowserRouter>
         <Navbar />
         <div className=" flex gap-4 py-5">

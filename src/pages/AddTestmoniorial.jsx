@@ -8,23 +8,22 @@ const AddTestmoniorial = () => {
 
   const [creating, setcreating] = useState(false);
   const createstmonial = async () => {
-    setcreating(true)
+    setcreating(true);
     const response = await axios.post(
       "http://localhost:4000/api/testimonials",
       { name: name, description: description }
     );
-    setcreating(false)
-    console.log(response)
-    setname("")
-    setdescription("")
+    {
+      response.status === 201 && toast.success(response.data.msg);
+    }
+
+    setcreating(false);
+    console.log(response);
+    setname("");
+    setdescription("");
   };
-  console.log(creating)
+  console.log(creating);
 
-//   faqs
-
-const handlecreating =()=>{
-  toast.success("Created Creating")
-}
   return (
     <div className=" flex flex-col gap-4 py-10 px-10">
       <input
@@ -42,7 +41,7 @@ const handlecreating =()=>{
         placeholder="Enter Description"
       />
       <button onClick={createstmonial} className=" bg-blue-500 text-white py-2">
-      {creating ? "posting.." : "Create" } 
+        {creating ? "posting.." : "Create"}
       </button>
     </div>
   );

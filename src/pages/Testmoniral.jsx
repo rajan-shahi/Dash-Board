@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Testmoniral = () => {
+  const [deleting, setdeleting] = useState(false);
   const [testmonials, setTestmonials] = useState([]);
 
   useEffect(() => {
@@ -16,14 +18,14 @@ const Testmoniral = () => {
   }, []);
 
   const deleteTestimonial = async (_id) => {
+    setdeleting(true)
     const response = await axios.delete(
       `http://localhost:4000/api/testimonials/${_id}`
     );
+    toast.success(response.data.msg)
     console.log(response);
+    setdeleting(false)
   };
-//   /faqs
-// question
-// answer
 
   return (
     <div>
@@ -79,7 +81,7 @@ const Testmoniral = () => {
                       Edit
                     </a>
                     <button onClick={()=>deleteTestimonial(item._id)} className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
-                      Delete
+                    {deleting ? "Deleting":"Delete"} 
                     </button>
                   </td>
                 </tr>
