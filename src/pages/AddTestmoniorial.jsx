@@ -1,20 +1,30 @@
 import axios from "axios";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const AddTestmoniorial = () => {
   const [name, setname] = useState("");
   const [description, setdescription] = useState("");
 
+  const [creating, setcreating] = useState(false);
   const createstmonial = async () => {
+    setcreating(true)
     const response = await axios.post(
       "http://localhost:4000/api/testimonials",
       { name: name, description: description }
     );
+    setcreating(false)
     console.log(response)
+    setname("")
+    setdescription("")
   };
+  console.log(creating)
 
 //   faqs
 
+const handlecreating =()=>{
+  toast.success("Created Creating")
+}
   return (
     <div className=" flex flex-col gap-4 py-10 px-10">
       <input
@@ -32,7 +42,7 @@ const AddTestmoniorial = () => {
         placeholder="Enter Description"
       />
       <button onClick={createstmonial} className=" bg-blue-500 text-white py-2">
-        Creater
+      {creating ? "posting.." : "Create" } 
       </button>
     </div>
   );

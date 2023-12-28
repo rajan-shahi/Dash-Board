@@ -17,6 +17,7 @@ const Faqs = () => {
     const response = await axios.delete(
       `http://localhost:4000/api/faqs/${_id}`
     );
+    // response.data.status === 200 && toHaveStyle.success(response.data.msg);
     console.log(response);
   };
   return (
