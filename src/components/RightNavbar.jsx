@@ -52,6 +52,16 @@ const lists = [
     link: "/doctors",
   },
   {
+    icon: <BsQuestionCircle />,
+    name: "Faqs",
+    link: "/faqs",
+  },
+  {
+    icon: <IoIosHeartEmpty />,
+    name: "Testimonial",
+    link: "/testimonial",
+  },
+  {
     icon: <FaRegCalendarAlt />,
     name: "Events",
     link: "/events",
@@ -76,11 +86,7 @@ const lists = [
     name: "Awards",
     link: "/awards",
   },
-  {
-    icon: <BsQuestionCircle />,
-    name: "Faqs",
-    link: "/faqs",
-  },
+  
   {
     icon: <IoCallOutline />,
     name: "Contacts",
@@ -110,10 +116,5 @@ const lists = [
     icon: <LuHeartOff />,
     name: "Values",
     link: "/values",
-  },
-  {
-    icon: <IoIosHeartEmpty />,
-    name: "Testimonial",
-    link: "/testimonial",
   },
 ];

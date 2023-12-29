@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 const Faqs = () => {
   const [deleting, setdeleting] = useState(false);
   const [faqs, setFaqs] = useState([]);
+  
 
   useEffect(() => {
     const fetchFaqsAllItems = async () => {
@@ -20,7 +21,7 @@ const Faqs = () => {
     const response = await axios.delete(
       `http://localhost:4000/api/faqs/${_id}`
     );
-    response.data === 201 && toast.success(response.data.msg);
+    toast.success("Delete Success");
     console.log(response);
     setdeleting(false);
   };
@@ -70,7 +71,7 @@ const Faqs = () => {
                     onClick={() => deleteFaqs(faq._id)}
                     className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                   >
-                    Delete
+                    {deleting ? "Deleting" : "delete"}
                   </button>
                 </td>
               </tr>
