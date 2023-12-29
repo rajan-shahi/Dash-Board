@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 const Faqs = () => {
   const [deleting, setdeleting] = useState(false);
   const [faqs, setFaqs] = useState([]);
-  
 
   useEffect(() => {
     const fetchFaqsAllItems = async () => {

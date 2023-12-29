@@ -9,6 +9,8 @@ import Faqs from "./pages/Faqs";
 import AddFaqs from "./pages/AddFaqs";
 import { Toaster } from "react-hot-toast";
 
+
+
 function App() {
   return (
     <div className=" overflow-x-hidden">

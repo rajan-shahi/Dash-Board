@@ -18,13 +18,13 @@ const Testmoniral = () => {
   }, []);
 
   const deleteTestimonial = async (_id) => {
-    setdeleting(true)
+    setdeleting(true);
     const response = await axios.delete(
       `http://localhost:4000/api/testimonials/${_id}`
     );
-    toast.success(response.data.msg)
+    toast.success(response.data.msg);
     console.log(response);
-    setdeleting(false)
+    setdeleting(false);
   };
 
   return (
@@ -80,13 +80,15 @@ const Testmoniral = () => {
                     >
                       Edit
                     </a>
-                    <button onClick={()=>deleteTestimonial(item._id)} className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
-                    {deleting ? "Deleting":"Delete"} 
+                    <button
+                      onClick={() => deleteTestimonial(item._id)}
+                      className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
+                    >
+                      {deleting ? "Deleting" : "Delete"}
                     </button>
                   </td>
                 </tr>
               ))}
-
             </tbody>
           </table>
         </div>
