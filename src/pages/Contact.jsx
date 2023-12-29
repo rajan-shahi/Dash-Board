@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+  const [deleting, setdeleting] = useState(false);
+  const [contacts, setcontacts] = useState([]);
 
-    const [deleting, setdeleting] = useState(false);
+  useEffect(() => {
+    const FetchAllContacts = async () => {
+      const respones = await axios.get(
+        "http://localhost:4000/api/contact-details"
+      );
 
+      setcontacts(respones.data.data);
+    };
+
+    FetchAllContacts();
+  }, []);
+
+  const DeleteContacts = async (_id) => {
+    setdeleting(true);
+    const respones = await axios.delete(
+      `http://localhost:4000/api/contact-details/${_id}`
+    );
+    console.log(respones);
+    toast.success("Delete Success");
+    setdeleting(false);
+  };
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
       <div className="items-start justify-between md:flex">
@@ -30,20 +53,46 @@ const Contact = () => {
         <table className="w-full table-auto text-sm text-left">
           <thead className="bg-gray-50 text-gray-600 font-medium border-b">
             <tr>
-              <th className="py-3 px-6"> EmergencyHotline</th>
-              <th className="py-3 px-6">EmergencyAmbulanceHotline</th>
-              <th className="py-3 px-6">HospitalNumber</th>
-              <th className="py-3 px-6"> HeliRescueNumber</th>
+              <th className="py-3 px-6"> EmrHotline</th>
+              <th className="py-3 px-6">EmrAmbHotline</th>
+              <th className="py-3 px-6">HopN</th>
+              <th className="py-3 px-6"> HelN</th>
+              <th className="py-3 px-6"> location</th>
+              <th className="py-3 px-6">24H</th>
+              <th className="py-3 px-6">email</th>
+              <th className="py-3 px-6"> admN</th>
+              <th className="py-3 px-6"> apN</th>
               <th className="py-3 px-6"></th>
             </tr>
           </thead>
-          <tbody className="text-gray-600 divide-y">
-            {tableItems.map((item, idx) => (
+          <tbody className="text-gray-600 divide-y  overflow-x-hidden">
+            {contacts.map((contact, idx) => (
               <tr key={idx}>
-                <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.position}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.salary}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.emergencyHotline}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.emergencyAmbulanceHotline}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.hospitalNumber}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.heliRescueNumber}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.location}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.twentyfourHourAvailableNumber}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">{contact.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.administrationNumber}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {contact.appointmentNumber}
+                </td>
                 <td className="text-right px-6 whitespace-nowrap">
                   <a
                     href="/"
@@ -52,10 +101,10 @@ const Contact = () => {
                     Edit
                   </a>
                   <button
-                    href="/"
+                    onClick={() => DeleteContacts(contact._id)}
                     className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                   >
-                    Delete
+                    {deleting ? "Deleting" : "delete"}
                   </button>
                 </td>
               </tr>
@@ -68,36 +117,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-const tableItems = [
-  {
-    name: "Liam James",
-    email: "liamjames@example.com",
-    position: "Software engineer",
-    salary: "$100K",
-  },
-  {
-    name: "Olivia Emma",
-    email: "oliviaemma@example.com",
-    position: "Product designer",
-    salary: "$90K",
-  },
-  {
-    name: "William Benjamin",
-    email: "william.benjamin@example.com",
-    position: "Front-end developer",
-    salary: "$80K",
-  },
-  {
-    name: "Henry Theodore",
-    email: "henrytheodore@example.com",
-    position: "Laravel engineer",
-    salary: "$120K",
-  },
-  {
-    name: "Amelia Elijah",
-    email: "amelia.elijah@example.com",
-    position: "Open source manager",
-    salary: "$75K",
-  },
-];
