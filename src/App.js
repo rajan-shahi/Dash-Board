@@ -8,6 +8,8 @@ import AddTestmoniorial from "./pages/AddTestmoniorial";
 import Faqs from "./pages/Faqs";
 import AddFaqs from "./pages/AddFaqs";
 import { Toaster } from "react-hot-toast";
+import Contact from "./pages/Contact";
+import AddContact from "./pages/AddContact";
 
 
 
@@ -26,6 +28,8 @@ function App() {
               <Route path="/addtestimonial" element={<AddTestmoniorial />} />
               <Route path="/faqs" element={<Faqs/>} />
               <Route path="/addfaqs" element={<AddFaqs/>} />
+              <Route path="/contacts" element={<Contact/>} />
+              <Route path="/addcontact" element={<AddContact/>} />
             </Routes>
           </div>
         </div>
