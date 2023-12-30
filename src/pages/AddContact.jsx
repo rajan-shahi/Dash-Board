@@ -15,9 +15,10 @@ const AddContact = () => {
   const [administrationNumber, setadministrationNumber] = useState();
   const [appointmentNumber, setappointmentNumber] = useState();
 
-  const createContacts = async () => {
-    setcreat(true)
-    toast.success("Created Success")
+  const createContacts = async (e) => {
+    e.preventDefault();
+    setcreat(true);
+    toast.success("Created Success");
     const respones = await axios.post(
       "http://localhost:4000/api/contact-details",
       {
@@ -32,7 +33,7 @@ const AddContact = () => {
         appointmentNumber: appointmentNumber,
       }
     );
-    setcreat(false)
+    setcreat(false);
     console.log(respones);
     setEmergencyHotline("");
     setEmergencyAmbulanceHotline("");
@@ -46,13 +47,17 @@ const AddContact = () => {
   };
 
   return (
-    <div className=" flex flex-col gap-4 py-10 px-10">
+    <form
+      onSubmit={createContacts}
+      className=" flex flex-col gap-4 py-10 px-10"
+    >
       <input
         value={EmergencyHotline}
         onChange={(e) => setEmergencyHotline(e.target.value)}
         className="  px-2 border  border-blue-400 py-3 "
         type="number"
         placeholder="Enter EmergencyHotline"
+        required
       />
       <input
         value={EmergencyAmbulanceHotline}
@@ -60,6 +65,7 @@ const AddContact = () => {
         className="  px-2 border border-blue-400 py-3 "
         type="number"
         placeholder="Enter EmergencyAmbulanceHotline"
+        required
       />
       <input
         value={hospitalNumber}
@@ -67,6 +73,7 @@ const AddContact = () => {
         className="  px-2 border border-blue-400 py-3 "
         type="number"
         placeholder="Enter hospitalNumber"
+        required
       />
       <input
         value={heliRescueNumber}
@@ -74,6 +81,7 @@ const AddContact = () => {
         className="  px-2 border border-blue-400 py-3 "
         type="number"
         placeholder="Enter heliRescueNumber"
+        required
       />
       <input
         value={location}
@@ -81,6 +89,7 @@ const AddContact = () => {
         className="  px-2 border border-blue-400 py-3 "
         type="text"
         placeholder="Enter Location"
+        required
       />
       <input
         value={twentyfourHourAvailableNumber}
@@ -88,13 +97,16 @@ const AddContact = () => {
         className="  px-2 border border-blue-400 py-3 "
         type="Number"
         placeholder="Enter twentyfourHourAvailableNumber"
+        required
       />
       <input
         value={email}
         onChange={(e) => setemail(e.target.value)}
         className="  px-2 border border-blue-400 py-3 "
         type="email"
+        name="email"
         placeholder="Enter email"
+        required
       />
       <input
         value={administrationNumber}
@@ -102,6 +114,7 @@ const AddContact = () => {
         className="  px-2 border border-blue-400 py-3 "
         type="number"
         placeholder="Enter administrationNumber"
+        required
       />
       <input
         value={appointmentNumber}
@@ -109,12 +122,13 @@ const AddContact = () => {
         className="  px-2 border border-blue-400 py-3 "
         type="number"
         placeholder="Enter administrationNumber"
+        required
       />
 
-      <button onClick={createContacts} className=" bg-blue-500 text-white py-2">
+      <button type="submit" className=" bg-blue-500 text-white py-2">
         {creat ? "creating" : "create"}
       </button>
-    </div>
+    </form>
   );
 };
 
