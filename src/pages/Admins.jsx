@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Admins = () => {
-
+  const [deleting, setdeleting] = useState(false);
   const [admins, setadmins] = useState([]);
 
   useEffect(() => {
@@ -15,10 +16,13 @@ const Admins = () => {
   }, []);
 
   const DeleteAdmins = async (_id) => {
+    setdeleting(true);
     const respones = await axios.delete(
       `http://localhost:4000/api/admins/${_id}`
     );
     console.log(respones);
+    setdeleting(false);
+    toast.success("Delete success");
   };
 
   return (
@@ -34,7 +38,8 @@ const Admins = () => {
           </p>
         </div>
         <div className="mt-3">
-          <Link to={"/addadmins"}
+          <Link
+            to={"/addadmins"}
             className="inline-block px-4 py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm"
           >
             Add Admin
@@ -68,7 +73,7 @@ const Admins = () => {
                     onClick={() => DeleteAdmins(admin._id)}
                     className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                   >
-                    Delete
+                    {deleting ? "Deleting" : "delete"}
                   </button>
                 </td>
               </tr>
