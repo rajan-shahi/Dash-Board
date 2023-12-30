@@ -10,13 +10,13 @@ import AddFaqs from "./pages/AddFaqs";
 import { Toaster } from "react-hot-toast";
 import Contact from "./pages/Contact";
 import AddContact from "./pages/AddContact";
-
-
+import Admins from "./pages/Admins";
+import AddAdmins from "./pages/AddAdmins";
 
 function App() {
   return (
     <div className=" overflow-x-hidden">
-         <Toaster />
+      <Toaster />
       <BrowserRouter>
         <Navbar />
         <div className=" flex gap-4 py-28">
@@ -26,10 +26,12 @@ function App() {
               <Route path="/doctors" element={<Doctors />} />
               <Route path="/testimonial" element={<Testmoniral />} />
               <Route path="/addtestimonial" element={<AddTestmoniorial />} />
-              <Route path="/faqs" element={<Faqs/>} />
-              <Route path="/addfaqs" element={<AddFaqs/>} />
-              <Route path="/contacts" element={<Contact/>} />
-              <Route path="/addcontact" element={<AddContact/>} />
+              <Route path="/faqs" element={<Faqs />} />
+              <Route path="/addfaqs" element={<AddFaqs />} />
+              <Route path="/contacts" element={<Contact />} />
+              <Route path="/addcontact" element={<AddContact />} />
+              <Route path="/admins" element={<Admins />} />
+              <Route path="/addadmins" element={<AddAdmins />} />
             </Routes>
           </div>
         </div>

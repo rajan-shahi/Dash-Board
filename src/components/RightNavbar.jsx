@@ -68,8 +68,8 @@ const lists = [
   },
   {
     icon: <FaRegCalendarAlt />,
-    name: "Events",
-    link: "/events",
+    name: "Admins",
+    link: "/admins",
   },
   {
     icon: <MdOutlineEventNote />,
