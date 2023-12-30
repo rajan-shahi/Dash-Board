@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Doctors = () => {
   return (
@@ -13,13 +14,13 @@ const Doctors = () => {
             industry.
           </p>
         </div>
-        <div className="mt-3 md:mt-0">
-          <a
-            href="/"
+        <div className="mt-3">
+          <Link to={"/adddoctors"}
+            
             className="inline-block px-4 py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm"
           >
             Add Doctors
-          </a>
+          </Link>
         </div>
       </div>
       <div className="mt-12 shadow-sm border rounded-lg overflow-x-auto">
