@@ -62,6 +62,11 @@ const lists = [
     link: "/testimonial",
   },
   {
+    icon: <IoCallOutline />,
+    name: "Contacts",
+    link: "/contacts",
+  },
+  {
     icon: <FaRegCalendarAlt />,
     name: "Events",
     link: "/events",
@@ -87,11 +92,7 @@ const lists = [
     link: "/awards",
   },
   
-  {
-    icon: <IoCallOutline />,
-    name: "Contacts",
-    link: "/contacts",
-  },
+  
   {
     icon: <GrGallery />,
     name: "Galleries",
