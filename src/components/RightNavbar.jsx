@@ -27,7 +27,9 @@ const RightNavbar = () => {
             to={list.link}
             key={index}
             className={`${
-              location.pathname === list.link ? " px-2 bg-blue-800  text-white" : " "
+              location.pathname === list.link
+                ? " px-2 bg-blue-800  text-white"
+                : " "
             } flex items-center gap-2 px-2  cursor-pointer rounded-sm`}
           >
             <h1 className=" py-3 text-2xl flex items-center">{list.icon}</h1>
@@ -62,15 +64,16 @@ const lists = [
     link: "/testimonial",
   },
   {
-    icon: <IoCallOutline />,
-    name: "Contacts",
-    link: "/contacts",
-  },
-  {
     icon: <FaRegCalendarAlt />,
     name: "Admins",
     link: "/admins",
   },
+  {
+    icon: <IoCallOutline />,
+    name: "Contacts",
+    link: "/contacts",
+  },
+
   {
     icon: <MdOutlineEventNote />,
     name: "Notices",
@@ -91,7 +94,7 @@ const lists = [
     name: "Awards",
     link: "/awards",
   },
-  
+
   {
     icon: <GrGallery />,
     name: "Galleries",
