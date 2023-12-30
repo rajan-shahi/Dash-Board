@@ -19,7 +19,7 @@ function App() {
          <Toaster />
       <BrowserRouter>
         <Navbar />
-        <div className=" flex gap-4 py-5">
+        <div className=" flex gap-4 py-28">
           <RightNavbar />
           <div className=" border w-full rounded-md px-5 py-2">
             <Routes>

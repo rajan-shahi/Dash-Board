@@ -1,10 +1,10 @@
 import React from "react";
-import { FaArrowRightFromBracket } from "react-icons/fa6";
+import { BsSortDown } from "react-icons/bs";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
   return (
-    <div className=" flex items-center justify-between    py-3 shadow-md  px-10">
+    <div className=" fixed z-0 bg-white left-0 right-0 flex items-center justify-between shadow-md  px-10">
       <img
         className=" cursor-pointer h-10 md:w-52 w-40 object-cover "
         src={Logo}
@@ -15,7 +15,7 @@ const Navbar = () => {
       </div>
       <div>
         <span className=" px-20  text-blue-700 cursor-pointer">
-          <FaArrowRightFromBracket size={20} />
+          <BsSortDown size={30} />
         </span>
       </div>
     </div>

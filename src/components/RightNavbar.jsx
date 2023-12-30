@@ -20,7 +20,7 @@ const RightNavbar = () => {
   console.log(location.pathname);
 
   return (
-    <div className=" w-[350px] ">
+    <div className=" overflow-y-scroll h-[600px] w-[350px] ">
       <div className="  rounded-md border-2 border-gray-100 px-4 py-2 ">
         {lists.map((list, index) => (
           <Link
@@ -91,7 +91,6 @@ const lists = [
     name: "Awards",
     link: "/awards",
   },
-  
   
   {
     icon: <GrGallery />,
