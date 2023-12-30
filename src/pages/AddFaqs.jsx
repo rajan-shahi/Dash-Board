@@ -14,9 +14,7 @@ const AddFaqs = () => {
       question: question,
       answer: answer,
     });
-    {
-      response.status === 201 && toast.success(response.data.msg);
-    }
+    toast.success("Created Success");
     console.log(response);
     setdeleting(false);
     setQuestion("");

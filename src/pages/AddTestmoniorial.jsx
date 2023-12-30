@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const AddTestmoniorial = () => {
-
   const [name, setname] = useState("");
   const [description, setdescription] = useState("");
   const [creating, setcreating] = useState(false);
@@ -15,10 +14,11 @@ const AddTestmoniorial = () => {
       "http://localhost:4000/api/testimonials",
       { name: name, description: description }
     );
-    {
-      response.status === 201 && toast.success(response.data.msg);
-    }
 
+    // {
+    //   response.status === 201 && toast.success(response.data.msg);
+    // }
+    toast.success("Created Success");
     setcreating(false);
     console.log(response);
     setname("");
@@ -27,7 +27,10 @@ const AddTestmoniorial = () => {
   console.log(creating);
 
   return (
-    <form onSubmit={createstmonial} className=" flex flex-col gap-4 py-10 px-10">
+    <form
+      onSubmit={createstmonial}
+      className=" flex flex-col gap-4 py-10 px-10"
+    >
       <input
         className="  px-2 border  border-blue-400 py-3 "
         type="text"
