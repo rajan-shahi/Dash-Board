@@ -4,13 +4,14 @@ import toast from "react-hot-toast";
 
 const AddAdmins = () => {
   const [creat, setcreat] = useState();
+  const [email, setemail] = useState();
+  const [password, setpassword] = useState();
+  
   const [passwordShow, setpasswordShow] = useState(false);
+
   const TogglePassword = () => {
     setpasswordShow(!passwordShow);
   };
-
-  const [email, setemail] = useState();
-  const [password, setpassword] = useState();
 
   const createAdmins = async (e) => {
     e.preventDefault();

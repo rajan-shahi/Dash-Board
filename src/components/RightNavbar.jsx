@@ -69,6 +69,11 @@ const lists = [
     link: "/admins",
   },
   {
+    icon: <LiaBookmark />,
+    name: "About",
+    link: "/about",
+  },
+  {
     icon: <IoCallOutline />,
     name: "Contacts",
     link: "/contacts",
@@ -110,11 +115,7 @@ const lists = [
     name: "Features",
     link: "/features",
   },
-  {
-    icon: <LiaBookmark />,
-    name: "Abouts",
-    link: "/abouts",
-  },
+  
   {
     icon: <LuHeartOff />,
     name: "Values",

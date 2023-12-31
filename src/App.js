@@ -13,6 +13,8 @@ import AddContact from "./pages/AddContact";
 import Admins from "./pages/Admins";
 import AddAdmins from "./pages/AddAdmins";
 import AddDoctors from "./pages/AddDoctors";
+import About from "./pages/About";
+import AddAbout from "./pages/AddAbout";
 
 function App() {
   return (
@@ -34,6 +36,10 @@ function App() {
               <Route path="/admins" element={<Admins />} />
               <Route path="/addadmins" element={<AddAdmins />} />
               <Route path="/adddoctors" element={<AddDoctors />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/addabout" element={<AddAbout />} />
+
+              
 
             </Routes>
           </div>
