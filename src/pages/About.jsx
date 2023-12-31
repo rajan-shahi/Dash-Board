@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const About = () => {
+  const [deleting, setdeleting] = useState();
   const [about, setabout] = useState([]);
 
   useEffect(() => {
@@ -16,10 +18,13 @@ const About = () => {
   }, []);
 
   const DeleteAboutItems = async (_id) => {
+    setdeleting(true);
     const responses = await axios.delete(
       `http://localhost:4000/api/about-sections/${_id}`
     );
     console.log(responses);
+    toast.success("Delete Success");
+    setdeleting(false);
   };
 
   return (
@@ -74,7 +79,7 @@ const About = () => {
                     onClick={() => DeleteAboutItems(about._id)}
                     className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                   >
-                    Delete
+                    {deleting ? "Deleting " : "delete"}
                   </button>
                 </td>
               </tr>

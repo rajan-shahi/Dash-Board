@@ -1,11 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const AddAbout = () => {
+  const [create, setcreate] = useState();
   const [description, setdescription] = useState();
   const [image, setimage] = useState();
 
   const createAbout = async (e) => {
+    setcreate(true);
     e.preventDefault();
     const respones = await axios.get(
       "http://localhost:4000/api/about-sections",
@@ -14,6 +17,8 @@ const AddAbout = () => {
         image: image,
       }
     );
+    setcreate(false);
+    toast.success("Create Success");
     console.log(respones);
     setdescription("");
     setimage("");
@@ -39,7 +44,7 @@ const AddAbout = () => {
         required
       />{" "}
       <button type="submit" className=" bg-blue-500 text-white py-2">
-        Create
+        {create ? "creating" : "create"}
       </button>
     </form>
   );
