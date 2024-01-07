@@ -42,7 +42,7 @@ const AddAbout = () => {
         type="file"
         onChange={(e) => setimage(e.target.files[0])}
         alt=""
-        className=" w-full  px-2 border border-blue-400 py-4 "
+        className=" w-full  px-2 border object-cover border-blue-400 py-4 "
         placeholder="Image"
         required
       />{" "}
