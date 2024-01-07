@@ -1,7 +1,30 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Features = () => {
+  const [deleting, setdeleting] = useState();
+  const [features, setfeatures] = useState([]);
+
+  useEffect(() => {
+    const featchFeaturesData = async () => {
+      const respones = await axios.get("http://localhost:4000/api/features");
+      setfeatures(respones.data.data);
+    };
+    featchFeaturesData();
+  }, []);
+
+  const deleteFeaturesItems = async (_id) => {
+    setdeleting(true);
+    const respones = await axios.delete(
+      `http://localhost:4000/api/features/${_id}`
+    );
+    console.log(respones);
+    toast.success("Delete Success");
+    setdeleting(false);
+  };
+
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
       <div className="items-start justify-between md:flex">
@@ -27,30 +50,32 @@ const Features = () => {
         <table className="w-full table-auto text-sm text-left">
           <thead className="bg-gray-50 text-gray-600 font-medium border-b">
             <tr>
+              <th className="py-3 px-6">Name</th>
               <th className="py-3 px-6">Image</th>
-              <th className="py-3 px-6">Email</th>
               <th className="py-3 px-6">Description</th>
               <th className="py-3 px-6"></th>
             </tr>
           </thead>
           <tbody className="text-gray-600 divide-y">
-            {tableItems.map((item, idx) => (
+            {features.map((feature, idx) => (
               <tr key={idx}>
-                <td className="flex items-center gap-x-3 py-3 px-6 whitespace-nowrap">
+                <td className="flex features-center gap-x-3 py-3 px-6 whitespace-nowrap">
                   <div>
                     <span className="block text-gray-700 text-sm font-medium">
-                      {item.name}
+                      {feature.name}
                     </span>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <img
                     alt=""
-                    src={item.avatar}
+                    src={feature.image}
                     className="w-10 h-10 rounded-full"
                   />
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.position}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {feature.description}
+                </td>
                 <td className="text-right px-6 whitespace-nowrap">
                   <a
                     href="/"
@@ -59,10 +84,10 @@ const Features = () => {
                     Edit
                   </a>
                   <button
-                    href="/"
+                    onClick={() => deleteFeaturesItems(feature._id)}
                     className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                   >
-                    Delete
+                    {deleting ? "deleting" : "delete"}
                   </button>
                 </td>
               </tr>
@@ -75,48 +100,3 @@ const Features = () => {
 };
 
 export default Features;
-
-const tableItems = [
-  {
-    avatar:
-      "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
-    name: "Liam James",
-    email: "liamjames@example.com",
-    phone_nimber: "+1 (555) 000-000",
-    position: "Software engineer",
-    salary: "$100K",
-  },
-  {
-    avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-    name: "Olivia Emma",
-    email: "oliviaemma@example.com",
-    phone_nimber: "+1 (555) 000-000",
-    position: "Product designer",
-    salary: "$90K",
-  },
-  {
-    avatar: "https://randomuser.me/api/portraits/women/79.jpg",
-    name: "William Benjamin",
-    email: "william.benjamin@example.com",
-    phone_nimber: "+1 (555) 000-000",
-    position: "Front-end developer",
-    salary: "$80K",
-  },
-  {
-    avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-    name: "Henry Theodore",
-    email: "henrytheodore@example.com",
-    phone_nimber: "+1 (555) 000-000",
-    position: "Laravel engineer",
-    salary: "$120K",
-  },
-  {
-    avatar:
-      "https://images.unsplash.com/photo-1439911767590-c724b615299d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
-    name: "Amelia Elijah",
-    email: "amelia.elijah@example.com",
-    phone_nimber: "+1 (555) 000-000",
-    position: "Open source manager",
-    salary: "$75K",
-  },
-];

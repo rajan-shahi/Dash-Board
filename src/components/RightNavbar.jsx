@@ -49,11 +49,6 @@ export default RightNavbar;
 
 const lists = [
   {
-    icon: <FaUserDoctor />,
-    name: "Doctors",
-    link: "/doctors",
-  },
-  {
     icon: <BsQuestionCircle />,
     name: "Faqs",
     link: "/faqs",
@@ -83,7 +78,11 @@ const lists = [
     name: "Contacts",
     link: "/contacts",
   },
-
+  {
+    icon: <FaUserDoctor />,
+    name: "Doctors",
+    link: "/doctors",
+  },
   {
     icon: <MdOutlineEventNote />,
     name: "Notices",
