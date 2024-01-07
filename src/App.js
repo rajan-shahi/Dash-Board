@@ -38,9 +38,6 @@ function App() {
               <Route path="/adddoctors" element={<AddDoctors />} />
               <Route path="/about" element={<About />} />
               <Route path="/addabout" element={<AddAbout />} />
-
-              
-
             </Routes>
           </div>
         </div>

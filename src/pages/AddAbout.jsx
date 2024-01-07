@@ -8,14 +8,18 @@ const AddAbout = () => {
   const [image, setimage] = useState();
 
   const createAbout = async (e) => {
-    setcreate(true);
     e.preventDefault();
-    const respones = await axios.get(
+    const formData = new FormData();
+    formData.append("description", description);
+    if (image) {
+      formData.append("image", image);
+    }
+
+    setcreate(true);
+
+    const respones = await axios.post(
       "http://localhost:4000/api/about-sections",
-      {
-        description: description,
-        image: image,
-      }
+      formData
     );
     setcreate(false);
     toast.success("Create Success");
@@ -35,9 +39,8 @@ const AddAbout = () => {
         required
       />
       <input
-        type="image"
-        value={image}
-        onChange={(e) => setimage(e.target.value)}
+        type="file"
+        onChange={(e) => setimage(e.target.files[0])}
         alt=""
         className=" w-full  px-2 border border-blue-400 py-4 "
         placeholder="Image"
