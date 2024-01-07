@@ -8,14 +8,13 @@ const AddAbout = () => {
   const [image, setimage] = useState();
 
   const createAbout = async (e) => {
+    setcreate(true);
     e.preventDefault();
     const formData = new FormData();
     formData.append("description", description);
     if (image) {
       formData.append("image", image);
     }
-
-    setcreate(true);
 
     const respones = await axios.post(
       "http://localhost:4000/api/about-sections",

@@ -69,6 +69,11 @@ const lists = [
     link: "/admins",
   },
   {
+    icon: <FaGgCircle />,
+    name: "Features",
+    link: "/features",
+  },
+  {
     icon: <LiaBookmark />,
     name: "About",
     link: "/about",
@@ -110,12 +115,7 @@ const lists = [
     name: "Comitteess",
     link: "/committees",
   },
-  {
-    icon: <FaGgCircle />,
-    name: "Features",
-    link: "/features",
-  },
-  
+
   {
     icon: <LuHeartOff />,
     name: "Values",
