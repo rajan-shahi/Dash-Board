@@ -18,6 +18,7 @@ import AddAbout from "./pages/AddAbout";
 import Features from "./pages/Features";
 import Addfeatures from "./pages/Addfeatures";
 import Committees from "./pages/Committees";
+import Addcommitees from "./pages/Addcommitees";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path="/features" element={<Features />} />
               <Route path="/addfeatures" element={<Addfeatures />} />
               <Route path="/committees" element={<Committees />} />
+              <Route path="/addcommittees" element={<Addcommitees />} />
             </Routes>
           </div>
         </div>

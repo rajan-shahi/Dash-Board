@@ -65,18 +65,8 @@ const lists = [
   },
   {
     icon: <MdOutlinePeopleAlt />,
-    name: "Comitteess",
+    name: "Committeess",
     link: "/committees",
-  },
-  {
-    icon: <FaGgCircle />,
-    name: "Features",
-    link: "/features",
-  },
-  {
-    icon: <LiaBookmark />,
-    name: "About",
-    link: "/about",
   },
   {
     icon: <IoCallOutline />,
@@ -84,10 +74,21 @@ const lists = [
     link: "/contacts",
   },
   {
+    icon: <FaGgCircle />,
+    name: "Features",
+    link: "/features",
+  },
+  {
     icon: <FaUserDoctor />,
     name: "Doctors",
     link: "/doctors",
   },
+  {
+    icon: <LiaBookmark />,
+    name: "About",
+    link: "/about",
+  },
+
   {
     icon: <MdOutlineEventNote />,
     name: "Notices",
