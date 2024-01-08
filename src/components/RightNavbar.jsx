@@ -64,6 +64,11 @@ const lists = [
     link: "/admins",
   },
   {
+    icon: <MdOutlinePeopleAlt />,
+    name: "Comitteess",
+    link: "/committees",
+  },
+  {
     icon: <FaGgCircle />,
     name: "Features",
     link: "/features",
@@ -109,12 +114,6 @@ const lists = [
     name: "Galleries",
     link: "/galleries",
   },
-  {
-    icon: <MdOutlinePeopleAlt />,
-    name: "Comitteess",
-    link: "/committees",
-  },
-
   {
     icon: <LuHeartOff />,
     name: "Values",
