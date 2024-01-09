@@ -6,21 +6,23 @@ import toast from "react-hot-toast";
 const Committees = () => {
   const [committees, setcommittees] = useState([]);
   const [deleteing, setdeleteing] = useState();
+  const [refresh, setrefresh] = useState(0);
 
   useEffect(() => {
     const fetchCommittess = async () => {
       const respones = await axios.get("http://localhost:4000/api/committees");
-
       setcommittees(respones.data.data);
+      setrefresh(0);
     };
     fetchCommittess();
-  }, []);
+  }, [refresh]);
 
   const deleteComittee = async (_id) => {
     setdeleteing(true);
     const respones = await axios.delete(
       `http://localhost:4000/api/committees/${_id}`
     );
+    setrefresh(1);
     console.log(respones);
     setdeleteing(false);
     toast.success("Delete Success");
