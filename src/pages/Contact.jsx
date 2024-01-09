@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+  const [refresh, setrefresh] = useState();
   const [deleting, setdeleting] = useState(false);
   const [contacts, setcontacts] = useState([]);
 
@@ -14,16 +15,18 @@ const Contact = () => {
       );
 
       setcontacts(respones.data.data);
+      setrefresh(0);
     };
 
     FetchAllContacts();
-  }, []);
+  }, [refresh]);
 
   const DeleteContacts = async (_id) => {
     setdeleting(true);
     const respones = await axios.delete(
       `http://localhost:4000/api/contact-details/${_id}`
     );
+    setrefresh(1);
     console.log(respones);
     toast.success("Delete Success");
     setdeleting(false);
