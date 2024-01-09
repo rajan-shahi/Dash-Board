@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Testmoniral = () => {
+  const [refreh, setrefreh] = useState();
   const [deleting, setdeleting] = useState(false);
   const [testmonials, setTestmonials] = useState([]);
 
@@ -14,14 +15,16 @@ const Testmoniral = () => {
       );
       setTestmonials(respones.data.data);
     };
+    setrefreh(0);
     featchAllTestimonials();
-  }, []);
+  }, [refreh]);
 
   const deleteTestimonial = async (_id) => {
     setdeleting(true);
     const response = await axios.delete(
       `http://localhost:4000/api/testimonials/${_id}`
     );
+    setrefreh(1);
     toast.success(response.data.msg);
     console.log(response);
     setdeleting(false);
