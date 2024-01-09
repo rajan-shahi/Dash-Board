@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Features = () => {
+  const [refresh, setrefresh] = useState();
   const [deleting, setdeleting] = useState();
   const [features, setfeatures] = useState([]);
 
@@ -13,13 +14,15 @@ const Features = () => {
       setfeatures(respones.data.data);
     };
     featchFeaturesData();
-  }, []);
+    setrefresh(0);
+  }, [refresh]);
 
   const deleteFeaturesItems = async (_id) => {
     setdeleting(true);
     const respones = await axios.delete(
       `http://localhost:4000/api/features/${_id}`
     );
+    setrefresh(1);
     console.log(respones);
     toast.success("Delete Success");
     setdeleting(false);

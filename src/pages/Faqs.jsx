@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Faqs = () => {
+  const [refresh, setrefresh] = useState(0);
   const [deleting, setdeleting] = useState(false);
   const [faqs, setFaqs] = useState([]);
 
@@ -13,13 +14,15 @@ const Faqs = () => {
       setFaqs(respones.data.data);
     };
     fetchFaqsAllItems();
-  }, []);
+    setrefresh(0);
+  }, [refresh]);
 
   const deleteFaqs = async (_id) => {
     setdeleting(true);
     const response = await axios.delete(
       `http://localhost:4000/api/faqs/${_id}`
     );
+    setrefresh(1);
     toast.success("Delete Success");
     console.log(response);
     setdeleting(false);
