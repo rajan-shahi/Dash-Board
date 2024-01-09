@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Admins = () => {
+  const [refresh, setrefresh] = useState(0);
   const [deleting, setdeleting] = useState(false);
   const [admins, setadmins] = useState([]);
 
@@ -12,8 +13,9 @@ const Admins = () => {
       const respones = await axios.get("http://localhost:4000/api/admins");
       setadmins(respones.data.data);
     };
+    setrefresh(0);
     FetchAllAdmins();
-  }, []);
+  }, [refresh]);
 
   const DeleteAdmins = async (_id) => {
     setdeleting(true);
@@ -21,6 +23,7 @@ const Admins = () => {
       `http://localhost:4000/api/admins/${_id}`
     );
     console.log(respones);
+    setrefresh(1);
     setdeleting(false);
     toast.success("Delete success");
   };
