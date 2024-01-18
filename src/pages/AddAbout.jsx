@@ -42,7 +42,7 @@ const AddAbout = () => {
         onChange={(e) => setimage(e.target.files[0])}
         alt=""
         className=" w-full  px-2 border object-cover border-blue-400 py-4 "
-        placeholder="Image"
+        placeholder="Image" 
         required
       />{" "}
       <button type="submit" className=" bg-blue-500 text-white py-2">

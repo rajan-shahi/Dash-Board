@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useActionData, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Edid = () => {
+
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-
-  const [refresh, setrefresh] = useState(0);
   const [faq, setFaq] = useState([]);
 
   useEffect(() => {
@@ -15,8 +14,7 @@ const Edid = () => {
       setFaq(respones.data.data);
     };
     fetchFaqsAllItems();
-    setrefresh(0);
-  }, [refresh]);
+  }, [id]);
 
   console.log(faq);
 
@@ -36,12 +34,8 @@ const Edid = () => {
         placeholder="Enter Your Answer"
         required
       />
-      <p>
-        {faq.createdAt}
-      </p>
-      <p>
-        {faq.updatedAt}
-      </p>
+      <p>{faq.createdAt}</p>
+      <p>{faq.updatedAt}</p>
       <button type="submit" className=" bg-blue-500 text-white py-2">
         create
       </button>
