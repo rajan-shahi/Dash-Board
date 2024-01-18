@@ -23,6 +23,7 @@ import Edid from "./pages/Edid";
 import Aboutedit from "./pages/Aboutedit";
 import AdminEdit from "./pages/AdminEdit";
 import TestmoniralEdit from "./pages/TestmoniralEdit";
+import CommitteeEdit from "./pages/CommitteeEdit";
 
 function App() {
   return (
@@ -53,11 +54,13 @@ function App() {
               <Route path="/faq-edit/:id" element={<Edid />} />
               <Route path="/about-edit/:id" element={<Aboutedit />} />
               <Route path="/admin-edit/:id" element={<AdminEdit />} />
+              <Route path="/committee-edit/:id" element={<CommitteeEdit />} />
               <Route
                 path="/testmoniral-edit/:id"
                 element={<TestmoniralEdit />}
               />
             </Routes>
+            
           </div>
         </div>
       </BrowserRouter>

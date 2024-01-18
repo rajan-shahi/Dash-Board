@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   const [deleting, setdeleting] = useState();
+  const [refresh, setrefresh] = useState(0);
   const [about, setabout] = useState([]);
 
   useEffect(() => {
@@ -15,7 +16,8 @@ const About = () => {
       setabout(respones.data.data);
     };
     fetchAboutItems();
-  }, []);
+    setrefresh(0);
+  }, [refresh]);
 
   const DeleteAboutItems = async (_id) => {
     setdeleting(true);
@@ -25,6 +27,7 @@ const About = () => {
     console.log(responses);
     toast.success("Delete Success");
     setdeleting(false);
+    setrefresh(1);
   };
 
   return (
