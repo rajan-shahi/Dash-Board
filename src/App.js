@@ -19,6 +19,7 @@ import Features from "./pages/Features";
 import Addfeatures from "./pages/Addfeatures";
 import Committees from "./pages/Committees";
 import Addcommitees from "./pages/Addcommitees";
+import Edid from "./pages/Edid";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
               <Route path="/addfeatures" element={<Addfeatures />} />
               <Route path="/committees" element={<Committees />} />
               <Route path="/addcommittees" element={<Addcommitees />} />
+              <Route path="/faq-edit/:id" element={<Edid />} />
+
+              
             </Routes>
           </div>
         </div>
