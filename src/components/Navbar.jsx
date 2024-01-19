@@ -4,7 +4,7 @@ import { BsSortDown } from "react-icons/bs";
 
 const Navbar = () => {
   return (
-    <div className="  z-0 bg-white left-0 right-0 flex items-center justify-between shadow-md  px-10">
+    <div className=" fixed z-0 bg-white left-0 right-0 flex items-center justify-between shadow-md  px-10">
       <button class="button" data-text="Awesome">
         <span class="actual-text">&nbsp;Everest&nbsp;</span>
         <span aria-hidden="true" class="hover-text">
