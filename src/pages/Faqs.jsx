@@ -49,7 +49,7 @@ const Faqs = () => {
           </Link>
         </div>
       </div>
-      <div className="mt-12 shadow-sm border rounded-lg overflow-x-auto">
+      <div className="mt-12  shadow-sm border rounded-lg overflow-x-auto">
         <table className="w-full table-auto text-sm text-left">
           <thead className="  text-gray-600 font-medium border-b">
             <tr>

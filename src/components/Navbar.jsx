@@ -25,6 +25,9 @@ const Navbar = () => {
         <span className=" text-blue-700  text-md  ">Email:- </span>
         everesthps@gmail.com
       </div>
+      <div className=" text-md cursor-pointer underlin text-gray-500 hover:scale-105 duration-500 hover:text-gray-700">
+        <span className=" text-blue-700  text-md">Appointment:- </span>001778895
+      </div>
       <div>
         <span className=" px-20  text-blue-700 cursor-pointer  hover:scale-y-110">
           <BsSortDown size={30} />
