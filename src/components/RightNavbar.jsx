@@ -68,11 +68,7 @@ const lists = [
     name: "Committeess",
     link: "/committees",
   },
-  {
-    icon: <LiaBookmark />,
-    name: "About",
-    link: "/about",
-  },
+
   {
     icon: <IoCallOutline />,
     name: "Contacts",
@@ -88,7 +84,12 @@ const lists = [
     name: "Doctors",
     link: "/doctors",
   },
- 
+  {
+    icon: <LiaBookmark />,
+    name: "About",
+    link: "/about",
+  },
+
   {
     icon: <MdOutlineEventNote />,
     name: "Notices",

@@ -24,6 +24,7 @@ import Aboutedit from "./pages/Aboutedit";
 import AdminEdit from "./pages/AdminEdit";
 import TestmoniralEdit from "./pages/TestmoniralEdit";
 import CommitteeEdit from "./pages/CommitteeEdit";
+import ContactEdit from "./pages/ContactEdit";
 
 function App() {
   return (
@@ -59,8 +60,8 @@ function App() {
                 path="/testmoniral-edit/:id"
                 element={<TestmoniralEdit />}
               />
+              <Route path="/contact-edit/:id" element={<ContactEdit />} />
             </Routes>
-            
           </div>
         </div>
       </BrowserRouter>

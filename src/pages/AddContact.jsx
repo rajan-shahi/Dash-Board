@@ -121,7 +121,7 @@ const AddContact = () => {
         onChange={(e) => setappointmentNumber(e.target.value)}
         className="  px-2 border border-blue-400 py-3 "
         type="number"
-        placeholder="Enter administrationNumber"
+        placeholder="Enter appointmentNumber"
         required
       />
 
