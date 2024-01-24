@@ -90,15 +90,16 @@ const lists = [
     link: "/about",
   },
 
-  {
-    icon: <MdOutlineEventNote />,
-    name: "Notices",
-    link: "/notices",
-  },
+
   {
     icon: <SiBookstack />,
     name: "Accrediatipons",
     link: "/accrediations",
+  },
+  {
+    icon: <MdOutlineEventNote />,
+    name: "Notices",
+    link: "/notices",
   },
   {
     icon: <FaBalanceScaleRight />,
